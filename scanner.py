@@ -37,15 +37,19 @@ for index_name, symbol in symbols.items():
 
     try:
 
-        df = yf.download(
-            symbol,
-            period="5d",
-            interval="5m",
-            progress=False
-        )
+df = yf.download(
+    symbol,
+    period="5d",
+    interval="5m",
+    progress=False
+)
 
-        if len(df.columns) > 1:
-            df.columns = df.columns.droplevel(1)
+# Handle MultiIndex safely
+if isinstance(df.columns, pd.MultiIndex):
+    df.columns = df.columns.get_level_values(0)
+
+print(index_name)
+print(df.columns)
 
         # ==========================
         # INDICATORS
