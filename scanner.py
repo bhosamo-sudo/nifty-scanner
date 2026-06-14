@@ -8,8 +8,11 @@ import os
 # TELEGRAM SETTINGS
 # =====================================
 
-TOKEN = os.getenv("8862410743:AAEJ00Xnnfd-JM8IkK1Fi-qujSzBq_EaKJk") 
-CHAT_ID = os.getenv("488427431")
+TOKEN = os.getenv("TELEGRAM_TOKEN")
+CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
+
+print("TOKEN LENGTH:", len(TOKEN) if TOKEN else "NONE")
+print("CHAT_ID:", CHAT_ID)
 
 # =====================================
 # INDEX LIST
