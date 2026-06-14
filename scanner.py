@@ -2,13 +2,14 @@ import yfinance as yf
 import pandas as pd
 import ta
 import requests
+import os
 
 # =====================================
 # TELEGRAM SETTINGS
 # =====================================
 
-TOKEN = "8862410743:AAEJ00Xnnfd-JM8IkK1Fi-qujSzBq_EaKJk" 
-CHAT_ID = "488427431"
+TOKEN = os.getenv("8862410743:AAEJ00Xnnfd-JM8IkK1Fi-qujSzBq_EaKJk") 
+CHAT_ID = os.getenv("488427431")
 
 # =====================================
 # INDEX LIST
