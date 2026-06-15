@@ -288,6 +288,8 @@ ERROR :
 # =====================================
 # SEND TELEGRAM
 # =====================================
+print(f"URL = https://api.telegram.org/bot{TOKEN[:10]}***/sendMessage")
+print(f"CHAT_ID = {CHAT_ID}")
 
 response = requests.post(
     f"https://api.telegram.org/bot{TOKEN}/sendMessage",
