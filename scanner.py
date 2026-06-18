@@ -120,10 +120,16 @@ for index_name, symbol in symbols.items():
         # IST TIME
         # ==========================
 
-        india_time = (
-            pd.Timestamp(df.index[-1])
-            .tz_convert("Asia/Kolkata")
-        )
+        india_time = pd.Timestamp(df.index[-1]).tz_convert("Asia/Kolkata")
+
+        current_time = india_time.time()
+        
+        market_open = pd.Timestamp("09:15").time()
+        market_close = pd.Timestamp("15:30").time()
+        
+        if current_time < market_open or current_time > market_close:
+            print("Market closed. Exiting...")
+            exit()
 
         india_time_str = india_time.strftime(
             "%d-%m-%Y %I:%M %p IST"
